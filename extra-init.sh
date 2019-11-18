@@ -13,3 +13,40 @@ done
 
 # Get wpi-source for yml parsing, noroot, errors etc
 source <(curl -s https://raw.githubusercontent.com/wpi-pw/template-workflow/master/wpi-source.sh)
+
+cur_env=$1
+env_config="${PWD}/config/environments/$cur_env.php"
+files=$(wpi_yq extra.files)
+
+# GIT clone extra repo last commit
+git clone --depth 1 git@github.com:wpi-pw/template-extra.git --branch master --single-branch
+
+# Copy extra dir to app dir
+ cp -R ${PWD}/template-extra/extra ${PWD}
+
+if [ "$cur_env" == "local" ]; then
+  cp ${PWD}/config/environments/development.php $env_config
+elif [ "$cur_env" == "production" ]; then
+  cp ${PWD}/config/environments/staging.php $env_config
+fi
+
+if [ -f "$env_config" ]; then
+
+  # Insert php script to environment file
+cat <<EOT >> $env_config
+
+// Load extra files
+\$error = '';
+\$files = explode(',', '$files');
+array_map(function (\$file) use (\$error) {
+    \$file = __DIR__ . "/../../extra/{\$file}.php";
+    if (file_exists(\$file)) {
+        require_once \$file;
+    }
+}, \$files);
+EOT
+
+fi
+
+# Remove extra repo
+rm -rf ${PWD}/template-extra
