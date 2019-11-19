@@ -19,7 +19,7 @@ env_config="${PWD}/config/environments/$cur_env.php"
 files=$(wpi_yq extra.files)
 
 # GIT clone extra repo last commit
-git clone --depth 1 git@github.com:wpi-pw/template-extra.git --branch master --single-branch
+git clone --depth 1 https://github.com/wpi-pw/template-extra.git --branch master --single-branch
 
 # Copy extra dir to app dir
  cp -R ${PWD}/template-extra/extra ${PWD}
