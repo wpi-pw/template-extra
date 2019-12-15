@@ -14,7 +14,7 @@ done
 # Get wpi-source for yml parsing, noroot, errors etc
 source <(curl -s https://raw.githubusercontent.com/wpi-pw/template-workflow/master/wpi-source.sh)
 
-cur_env=$1
+cur_env=$(cur_env)
 env_config="${PWD}/config/environments/$cur_env.php"
 files=$(wpi_yq extra.files)
 
@@ -24,9 +24,9 @@ git clone --depth 1 https://github.com/wpi-pw/template-extra.git --branch master
 # Copy extra dir to app dir
  cp -R ${PWD}/template-extra/extra ${PWD}
 
-if [ "$cur_env" == "local" ]; then
+if [ "$cur_env" == "local" ] || [ "$cur_env" == "dev" ]; then
   cp ${PWD}/config/environments/development.php $env_config
-elif [ "$cur_env" == "production" ]; then
+else
   cp ${PWD}/config/environments/staging.php $env_config
 fi
 
