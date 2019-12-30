@@ -26,7 +26,7 @@ git clone --depth 1 https://github.com/wpi-pw/template-extra.git --branch master
 
 if [ "$cur_env" == "local" ] || [ "$cur_env" == "dev" ]; then
   cp ${PWD}/config/environments/development.php $env_config
-elif [ "$cur_env" != "staging" ]
+elif [ "$cur_env" != "staging" ]; then
   cp ${PWD}/config/environments/staging.php $env_config
 fi
 
