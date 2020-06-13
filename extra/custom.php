@@ -6,6 +6,7 @@
  */
 
 use Roots\WPConfig\Config;
+use function Env\env;
 
 // Changing the Number of Revisions to Save for Posts
 Config::define('WP_POST_REVISIONS', env('WP_POST_REVISIONS'));
