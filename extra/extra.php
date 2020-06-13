@@ -6,6 +6,7 @@
  */
 
 use Roots\WPConfig\Config;
+use function Env\env;
 
 // WP Mail SMTP by WPForms setup
 Config::define('WPMS_ON', env('WPMS_ON') ?: false);
