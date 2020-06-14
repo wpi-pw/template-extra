@@ -6,6 +6,7 @@
  */
 
 use Roots\WPConfig\Config;
+use function Env\env;
 
 /**
  * Cookie settings
