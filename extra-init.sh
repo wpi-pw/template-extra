@@ -50,3 +50,9 @@ fi
 
 # Remove extra repo
 rm -rf ${PWD}/template-extra
+
+# Remove WPI config directory after installing process
+if [ "$(wpi_yq "env.$cur_env.app_no_config")" == "true" ]; then
+  rm -rf "${PWD}/wpi-config"
+fi
+
