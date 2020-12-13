@@ -22,7 +22,8 @@ files=$(wpi_yq extra.files)
 git clone --depth 1 https://github.com/wpi-pw/template-extra.git --branch master --single-branch --quiet
 
 # Copy extra dir to app dir
- cp -R ${PWD}/template-extra/extra ${PWD}
+mkdir ${PWD}/extra
+mv ${PWD}/template-extra/extra/* ${PWD}/extra
 
 if [ "$cur_env" == "local" ] || [ "$cur_env" == "dev" ]; then
   cp ${PWD}/config/environments/development.php $env_config
