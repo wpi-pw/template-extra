@@ -26,9 +26,9 @@ mkdir ${PWD}/extra
 mv ${PWD}/template-extra/extra/* ${PWD}/extra
 
 if [ "$cur_env" == "local" ] || [ "$cur_env" == "dev" ]; then
-  cp ${PWD}/config/environments/development.php $env_config
+  cat ${PWD}/config/environments/development.php > $env_config
 elif [ "$cur_env" != "staging" ]; then
-  cp ${PWD}/config/environments/staging.php $env_config
+  cat ${PWD}/config/environments/staging.php > $env_config
 fi
 
 if [ -f "$env_config" ]; then
