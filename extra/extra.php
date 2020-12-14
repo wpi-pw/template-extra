@@ -15,3 +15,6 @@ Config::define('WPMS_SMTP_PASS', env('WPMS_SMTP_PASS') ?: false);
 // WP Rocket license
 Config::define('WP_ROCKET_EMAIL', env('WP_ROCKET_EMAIL'));
 Config::define('WP_ROCKET_KEY', env('WP_ROCKET_KEY'));
+
+// Google Tag Manager
+Config::define('WP_GTM', env('WP_GTM'));
