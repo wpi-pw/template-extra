@@ -24,4 +24,4 @@ Config::define('AS3CF_SETTINGS', serialize( array(
 	'provider' => env('S3_PROVIDER') ?: false,
 	'access-key-id' => env('S3_ACCESS-KEY-ID') ?: false,
 	'secret-access-key' => env('S3_SECRET-ACCESS-KEY') ?: false,
-) );
+) ) );
