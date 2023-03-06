@@ -22,6 +22,6 @@ Config::define('WP_GTM', env('WP_GTM'));
 //Amazon S3 Settings
 Config::define('AS3CF_SETTINGS', serialize( array(
 	'provider' => env('S3_PROVIDER') ?: false,
-	'access-key-id' => env('S3_ACCESS-KEY-ID') ?: false,
-	'secret-access-key' => env('S3_SECRET-ACCESS-KEY') ?: false,
-) );
+	'access-key-id' => env('S3_ACCESS_KEY_ID') ?: false,
+	'secret-access-key' => env('S3_SECRET_ACCESS_KEY') ?: false,
+) ) );
