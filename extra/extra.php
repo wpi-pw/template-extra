@@ -25,3 +25,8 @@ Config::define('AS3CF_SETTINGS', serialize( array(
 	'access-key-id' => env('S3_ACCESS_KEY_ID') ?: false,
 	'secret-access-key' => env('S3_SECRET_ACCESS_KEY') ?: false,
 ) ) );
+
+//Set Server Https on
+if(env('SERVER_HTTPS_FORCE')){
+	$_SERVER['HTTPS'] = 'on';
+}
